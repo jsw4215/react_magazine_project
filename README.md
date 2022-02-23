@@ -12,6 +12,14 @@
 
 <br>
 
+<h3><b>🎞 배포 URL 🎞</b></h3>
+
+[배포 URL 바로가기](https://reactweek2-1161e.web.app/login)
+
+<h3><b>💻 Now Working On.. 💻</b></h3>
+
+Apply Recoil to the Project.
+
 ---
 
 <h3><b>🎫 프로젝트 소개 🎫</b></h3>
@@ -33,20 +41,21 @@
 <img src="https://img.shields.io/badge/react-375BD2?style=for-the-badge&logo=react&logoColor=white">
 <img src="https://img.shields.io/badge/redux-3CBDB1?style=for-the-badge&logo=redux&logoColor=white">
 <img src="https://img.shields.io/badge/firebase-FFCC33?style=for-the-badge&logo=firebase&logoColor=white">
-<img src="https://img.shields.io/badge/typescript-945DD6?style=for-the-badge&logo=typescript&logoColor=white">
+<img src="https://img.shields.io/badge/recoil-945DD6?style=for-the-badge&logo=recoil&logoColor=white">
 </br>
 <img src="https://img.shields.io/badge/reactrouterdom-375BD2?style=for-the-badge&logo=reactrouterdom&logoColor=white">
 <img src="https://img.shields.io/badge/styledcomponents-181717?style=for-the-badge&logo=styledcomponents&logoColor=white">
 
 
 <br><br>
-<h3 align="center"><b>🎬 Getting Started 🎬</b></h3>
+<h3 align="center"><b>🏁 Getting Started 🏁</b></h3>
 <pre>
 <code>
-~$ cd react_project_01_with_firebase_and_redux
+~$ cd react_plus_class
 ~$ yarn add react-router-dom
 ~$ yarn add react-redux
 ~$ yarn add styled-components
+~$ yarn add @mui/material @emotion/react @emotion/styled
 ~$ yarn start
 </code>
 </pre>
@@ -56,28 +65,65 @@
 <pre>
 <code>
 src/
-┣ addWord/
-┃ ┗ AddWord.js
+┣ components/
+┃ ┣ atoms/
+┃ ┃ ┗ LoginBox.js
+┃ ┣ molecules/
+┃ ┃ ┣ LoginContainer.js
+┃ ┃ ┗ SignUpBox.js
+┃ ┣ organism/
+┃ ┃ ┗ SignUp.js
+┃ ┣ Card.js
+┃ ┣ CommentList.js
+┃ ┣ CommentWrite.js
+┃ ┣ Header.js
+┃ ┣ NotiBadge.js
+┃ ┗ Post.js
+┣ elements/
+┃ ┣ Button.js
+┃ ┣ Grid.js
+┃ ┣ Image.js
+┃ ┣ index.js
+┃ ┣ Input.js
+┃ ┣ Spinner.js
+┃ ┗ Text.js
+┣ images/
+┃ ┗ like.js
+┣ pages/
+┃ ┣ postTypes/
+┃ ┃ ┗ PostTypes.js
+┃ ┣ Login.js
+┃ ┣ LoginPage.js
+┃ ┣ LoginTemp.js
+┃ ┣ Notification.js
+┃ ┣ PostDetail.js
+┃ ┣ PostList.js
+┃ ┣ PostWrite.js
+┃ ┣ Signup.js
+┃ ┣ SignUpPage.js
+┃ ┗ SignUpTemp.js
 ┣ redux/
 ┃ ┣ modules/
-┃ ┃ ┗ word.js
-┃ ┗ configStore.js
-┣ singleBox/
-┃ ┣ readSingle/
-┃ ┃ ┣ ReadSingle.js
-┃ ┃ ┗ ReadSingle.jsx
-┃ ┣ SingleBox.js
-┃ ┗ UpdateSingle.js
-┣ App.css
-┣ App.js
+┃ ┃ ┣ comment.js
+┃ ┃ ┣ image.js
+┃ ┃ ┣ post.js
+┃ ┃ ┗ user.js
+┃ ┗ configureStore.js
+┣ shared/
+┃ ┣ App.css
+┃ ┣ App.js
+┃ ┣ common.js
+┃ ┣ Cookie.js
+┃ ┣ firebase.js
+┃ ┣ InfinityScroll.js
+┃ ┣ Permit.js
+┃ ┣ Search.js
+┃ ┗ Upload.js
 ┣ App.test.js
-┣ firebase.js
 ┣ index.css
 ┣ index.js
-┣ logo.svg
 ┣ reportWebVitals.js
-┣ setupTests.js
-┗ WordBoxList.js
+┗ setupTests.js
 </code>
 </pre>
 <br>
@@ -100,12 +146,15 @@ src/
 
 <table width="100%">
     <tr>
+        <td width="50%"><img src="https://user-images.githubusercontent.com/55970155/155251199-671a7011-385b-40d1-8700-5a01f088952b.PNG" /></td>
         <td width="50%">
             <h5>메인 화면</h5>
             <ul>
                 <li>리덕스를 이용하여 Firebase FireStore에 저장된 값 로드하기</li>
-                <li>리액트 라우터 돔을 이용하여 각 페이지 라우팅</li>
-                <li>스타일드 컴포넌트를 이용한 디자인구현</li>
+                <li>리액트 라우터 돔을 이용하여 페이지 라우팅</li>
+                <li>데이터 사용성을 위한 무한스크롤 구현</li>
+                <li>좋아요 기능 구현</li>
+                <li>댓글 기능 구현</li>
             </ul>
         </td>
     </tr>
@@ -115,16 +164,53 @@ src/
 ---
 
 <br>
-<h4><b>📰 SingleBox Page 📰</b></h4>
+
+
+<h4><b>📰 Login Page 📰</b></h4>
 
 <table width="100%">
     <tr>
+        <td width="50%"><img src="https://user-images.githubusercontent.com/55970155/155251422-5f72b2b6-6289-41a4-97d7-2e80dadba51f.PNG" /></td>
         <td width="50%">
-            <h5>상세 화면</h5>
+            <h5>로그인 화면</h5>
             <ul>
-                <li>조건문과 state를 이용한 글 삭제/수정 분기 구현</li>
-                <li>styled-components와 데이터 처리부 분리 구현</li>
-                <li>리덕스 툴킷 적용한 데이터 생성/읽기/삭제/수정 구현</li>
+                <li>Material UI 로그인 템플릿 사용</li>
+                <li>redux를 이용한 전역 데이터 관리</li>
+                <li>firebase Auth를 이용한 유저 정보 관리</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
+<h4><b>📰 Signup Page 📰</b></h4>
+
+<table width="100%">
+    <tr>
+        <td width="50%"><img src="https://user-images.githubusercontent.com/55970155/155251495-d01e3363-6e30-4e1e-9485-ceeba206ee08.PNG" /></td>
+        <td width="50%">
+            <h5>회원가입 화면</h5>
+            <ul>
+                <li>Material UI 회원가입 템플릿 사용</li>
+                <li>redux를 이용한 전역 데이터 관리</li>
+                <li>firebase Auth를 이용한 유저 정보 관리</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
+
+<h4><b>📰 Notification Page 📰</b></h4>
+
+<table width="100%">
+    <tr>
+        <td width="50%"><img src="https://user-images.githubusercontent.com/55970155/155251526-64082579-4967-4364-a9b8-325bbe947f56.PNG" /></td>
+        <td width="50%">
+            <h5>알림 화면</h5>
+            <ul>
+                <li>Material UI Badge를 이용한 실시간 알림기능 구현</li>
+                <li>알림 클릭시 해당 게시물로 이동 구현</li>
             </ul>
         </td>
     </tr>
@@ -138,15 +224,41 @@ src/
 
 <h3 align="center"><b>🏷 Firebase  🏷</b></h3>
 
-#### Word
+#### User
 
 |Actions|Params - to|Params - from|Role|
 |:--:|:--:|:--:|:--:|
-|word/CREATE| {text, explain, example} |{id}|생성|
-|word/LOAD| - | list[...{text, explain, example}] |읽기|
-|word/UPDATE|{id, text, explain, example}| - |수정|
-|word/DELETE|{id}| - |삭제|
+|SET_USER| {id, pw, pw_check, user_name} | - |회원가입|
+|GET_USER| - | {id, pw, user_name} | 정보조회(미구현) |
+|LOG_OUT| deleteCookie | - |로그아웃|
 
+#### Post
+
+|Actions|Params - to|Params - from|Role|
+|:--:|:--:|:--:|:--:|
+|GET_POST| {start, next, size} | {post_list, paging} |포스트 *단위별로 GET|
+|SET_POST| {post_list, paging} | - |포스트 *단위별로 SET|
+|ADD_POST| {post} | - | 포스트 추가 |
+|EDIT_POST| {post_id, post} | - | 포스트 수정 |
+|LOADING|  {is_loading} | - |로딩 구분|
+|DELETE_POST| {post_id} | - | 포스트 삭제 |
+|LIKE_POST| {post_id, _user_id, like_status} | {[like], like_cnt} |좋아요 기능 구현|
+
+*무한스크롤 구현으로 인한 화면단위 : 3 post
+
+#### Image
+
+|Actions|Params - to|Params - from|Role|
+|:--:|:--:|:--:|:--:|
+|UPLOAD_IMAGE| {image_url} | {image_url} |Image URL 업로드|
+|SET_PREVIEW| {preview} | {preview} |Image Preview SET|
+
+#### Comment
+
+|Actions|Params - to|Params - from|Role|
+|:--:|:--:|:--:|:--:|
+|SET_COMMENT| {post_id} | {comment_list} |댓글 불러오기|
+|ADD_COMMENT| {post_id, comment} | - |댓글 생성|
 
 <br><br>
 
@@ -158,13 +270,31 @@ src/
 <br>
 <details>
     <summary>
-        <b>리덕스 적용시 복잡한 구조 개선 필요성을 느꼈다.</b>
+        <b>이미지 불러오기</b>
     </summary>
-    <br>해결 : 리덕스 툴킷을 적용하여 Action Creator를 생략하고 Reducer에 통합적용으로 해결
+    <br>해결 : 작성중..
 </details>
 <details>
     <summary>
-        <b>타입 스크립트 적용시, userSelector의 인자 state의 타입 적용</b>
+        <b>무한스크롤</b>
     </summary>
-    <br>해결 : combineReducers를 이용하여 rootReducer를 생성 후, 타입을 export하여 해결
+    <br>해결 : 작성중..
+</details>
+<details>
+    <summary>
+        <b>실시간 댓글 알림 기능</b>
+    </summary>
+    <br>해결 : 작성중..
+</details>
+<details>
+    <summary>
+        <b>좋아요 기능</b>
+    </summary>
+    <br>해결 : 작성중..
+</details>
+<details>
+    <summary>
+        <b>material UI </b>
+    </summary>
+    <br>해결 : 작성중..
 </details>
