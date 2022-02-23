@@ -16,10 +16,6 @@
 
 [배포 URL 바로가기](https://reactweek2-1161e.web.app/login)
 
-<h3><b>💻 Now Working On.. 💻</b></h3>
-
-Apply Recoil to the Project.
-
 ---
 
 <h3><b>🎫 프로젝트 소개 🎫</b></h3>
